@@ -59,4 +59,23 @@
 |La valeur est accessible par `ClassName.fieldname`. Exemple : `Integer.MAX_VALUE`|La valeur est accessible par `ObjectVariable.fieldname`. Exemple mon `Object.FieldName` (`myObject` est notre nom de variable pour un objet que nous créons et `myFieldName` est un attribut de la classe|
 |Nécessite le mot-clé `static` lorsqu'il est déclaré sur la classe.|Omet le mot-clé `static` lorsqu'il est déclaré sur la classe.|
 |La méthode est accessible par `ClassName.methodName`. Exemple : `Integer.parseInt("123")`. Une méthode appelée `parseInt` est appelée directement depuis la `Class, Integer`.|La méthode est accessible par `ObjectVariable.methodName`. Exemple : `"bonjour".toUpperCase()`. Une méthode appelée `UpperCase` est appelée sur l'instance d'une chaîne avec la valeur `"hello"`|
-​
+
+
+#### **Méthodes de wrapper pour analyser les chaînes en valeurs numériques**
++ Vous vous en souviendrez, nous avons utilisé les classes wrapper pour obtenir les valeurs min et max.
++ Dans ce cas, nous allons utiliser une méthode statique, sur la classe wrapper, pour laisser cette classe faire la transformation à notre place.
+
+| Wrapper | Wrapper Method      |
+|---------|---------------------|
+| Integer | parseInt(String)    |
+| Double  | parseDouble(String) |
+
+
+|Technique| Description                                                                                                                                                                                                                                           |
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`System.in`| Comme `System.out`, Java fournit à `System.in` la possibilité de lire les entrées de la console ou du terminal. Ce n'est pas facile à utiliser pour les débutants, et beaucoup de code a été construit autour de lui, pour le rendre plus facile      |
+|`System.console`| Il s'agit de la solution Java permettant de faciliter la lecture d'une seule ligne et de demander des informations à l'utilisateur. Bien que cela soit facile à utiliser, cela ne fonctionne pas avec les IDE car ces environnements le désactivent.  |
+|Arguments de ligne de commande| Cela appelle le programme Java et spécifie les données dans l'appel. Ceci est très couramment utilisé mais ne nous permet pas de créer une application interactive en boucle en java                                                                  |
+|Scanner| La « classe Scanner » a été conçue pour être un moyen courant de lire les entrées, soit à l'aide de « System.in », soit d'un fichier. Pour les débutants, c'est beaucoup plus facile à comprendre que le simple système `System.in`                   |
+
+
