@@ -270,14 +270,14 @@
 + Un parent peut avoir plusieurs enfants, comme on le voit Mammifère, qui est le parent du Chien et du Chat.
 + Un enfant ne peut avoir qu'un seul parent direct, en Java. Mais il héritera du parent de sa classe parent, et ainsi de suite.
 
-<img src = "C:\Java-Programming-Masterclass-updated-to-java17\Section7-OOP-Part1-Inheritance\images\inheritance.jpg"/>
+<img src = "C:\Java-Programming-Masterclass-updated-to-java17\Section7-OOP-Part1-Inheritance\images\inheritance.png"/>
 
 ### **<font color = "red">Classe d'animaux</font>**
 + Un diagramme de classes, nous permet de concevoir nos classes avant de les construire.
 + Ce diagramme montre la classe Animal, avec les attributs que nous pensons que chaque type d'animal possède.
 + En dessous des champs, nous avons le comportement que les animaux ont en commun, bouger et faire du bruit.
 
-<img src = "https://github.com/Etixi/Java-Programming-Masterclass-updated-to-java17/blob/c5d81af7857cb32afd588680a4a843faf1a4bb59/Section7-OOP-Part1-Inheritance/images/animal_dog.png"/>
+<img src = "C:\Java-Programming-Masterclass-updated-to-java17\Section7-OOP-Part1-Inheritance\images\dog.png"/>
 
 ### **<font color = "red">Modèle de classe pour animal et chien</font>**
 + Le chien hérite de l'animal.
@@ -286,7 +286,7 @@
 + Cela est également vrai pour les méthodes Animal. Le chien en héritera également.
 + Nous pouvons spécialiser la classe Chien avec ses propres champs et comportements.
 
-<img src = "C:\Java-Programming-Masterclass-updated-to-java17\Section7-OOP-Part1-Inheritance\images\animal_dog.jpg"/>
+<img src = "C:\Java-Programming-Masterclass-updated-to-java17\Section7-OOP-Part1-Inheritance\images\animal_dog.png"/>
 
 ### **<font color = "red">extends</font>**
 
@@ -316,6 +316,160 @@
 
 ### **<font color = "red">Polymorphisme</font>**
 + « Polymorphisme » signifie simplement « plusieurs formes ».
-+ Et comme vous l'avez vu, certains des avantages du «Polymorphisme» sont :
++ Et comme vous l'avez vu, certains des avantages du «Polymorphisme» sont:
   + cela simplifie le code.
   + cela encourage l'extensibilité du code.
+
+### **<font color = "blue">Héritage</font>**
++ L'héritage semble plutôt intéressant, mais quand l'utiliserions-nous vraiment?
+
+### **<font color = "blue">Java.lang.Object</font>**
++ En effet, chaque classe que vous créez en Java étend intrinsèquement une classe Java spéciale.
++ Cette classe s'appelle `Object` et elle se trouve dans le `package java.lang`.
++ Ok, c'est déroutant, une classe appelée `Object` ?
++ Voyons ce que Java a à dire sur cette classe.
++ Nous utiliserons le lien vers l'interface de programmation d'application (API) de Java pour cette classe, que vous pouvez trouver dans la section ressources de cette vidéo.
+
+### **<font color = "blue">Chaque classe hérite de l'objet</font>**
++ Cette diapositive montre que notre « Classe principale » hérite de, ou est une sous-classe de « Objet », et est également une chaîne. Cette classe String possède plus de 60 méthodes.
+
+### **Héritage**
++ L'héritage semble plutôt intéressant, mais quand l'utiliserions-nous vraiment ?
+
+### **Ceci contre Super**
++ Discutons de la différence entre les mots-clés « this » et « super ».
++ Nous découvrirons également les différences entre les appels aux méthodes `this()` et `super()`.
++ Commençons par les mots-clés `super` et `this`.
++ Le mot-clé `super` est utilisé pour accéder ou appeler les membres de la classe parent (variables et méthodes).
++ `this` est obligatoire, lorsque nous avons un paramètre du même nom, en tant que variable d'instance ou champ.
++ `REMARQUE :` Nous pouvons utiliser l'un ou l'autre n'importe où dans une classe, à l'exception des éléments statiques, comme une méthode statique. Toute tentative de le faire à cet endroit entraînera des erreurs de compilation.
+
+### **Mot clé ceci**
++ Le mot-clé `this` est couramment utilisé avec les constructeurs et les setters, et éventuellement utilisé dans les getters.
++ Dans cet exemple, nous utilisons le mot-clé dans le constructeur et le setter, car il existe un paramètre portant le même nom que l'instance ou le champ.
++ Dans le getter, nous n'avons aucun paramètre, donc il n'y a pas de conflit, donc le mot-clé `this` y est facultatif.
+
+### **Mot clé super**
++ Le mot-clé `super`, est couramment utilisé avec `method overriding`, lorsque nous appelons une méthode du même nom, à partir de la classe parent.
++ Dans cet exemple, nous avons une méthode appelée `printMethod` qui appelle `super.printMethod`.
+
+### **Appel this() vs super()**
++ En Java, nous avons les appels `this()` et `super()`. Notez les parenthèses. Il s'agit d'appels, car cela ressemble à un appel de méthode normal, même si nous appelons certains constructeurs.
++ Utilisez `this()` pour appeler un constructeur, à partir d'un autre constructeur surchargé de la même classe.
++ L'appel à `this()` ne peut être utilisé que dans un constructeur, et il doit s'agir du premier constructeur d'instruction.
++ Il est utilisé avec le chaînage de constructeurs, en d'autres termes lorsqu'un constructeur appelle un autre constructeur, et il permet de réduire le code dupliqué.
++ La seule façon d'appeler un constructeur parent est d'appeler `super()`, qui appelle le constructeur parent.
++ Le compilateur Java appelle par défaut `super()`, si nous ne l'ajoutons pas, et c'est toujours un appel au constructeur sans argument, qui est inséré par le compilateur.
++ L'appel à `super()` doit être la première instruction de chaque constructeur.
++ Un constructeur peut appeler `super()` ou `this()`, mais jamais les deux.
+
+
+### **Méthode de remplacement ou surcharge**
++ Passons en revue les principales différences entre le « remplacement de méthode et la surcharge de méthode ».
+
+### **Surcharge de méthode**
++ `La surcharge de méthodes` signifie fournir deux ou plusieurs méthodes distinctes, dans une classe, avec le même nom, mais des paramètres différents.
++ Le type de retour de la méthode peut être différent ou non, ce qui nous permet de réutiliser le même nom de méthode.
++ La surcharge est très pratique, elle réduit le code dupliqué et nous n'avons pas besoin de mémoriser plusieurs noms de méthodes.
++ Nous pouvons surcharger les méthodes statiques ou d'instance.
++ Pour le code appelant une méthode surchargée, il semble qu'une seule méthode puisse être appelée, avec différents ensembles d'arguments.
++ En réalité, chaque appel effectué avec un ensemble d'arguments différent appelle une méthode distincte.
++ Les développeurs Java appellent souvent la surcharge de méthodes le polymorphisme au moment de la compilation.
++ Cela signifie que le compilateur détermine la bonne méthode à appeler, en fonction du nom de la méthode et de la liste d'arguments.
++ Habituellement, la surcharge se produit au sein d'une seule classe. Mais les méthodes peuvent aussi être surchargées par les sous-classes.
++ En effet, une sous-classe hérite d'une version de la méthode de la classe parent, et la sous-classe peut alors avoir une autre version surchargée de cette méthode.
+
+### ***Règles de surcharge des méthodes**
++ Les méthodes seront considérées comme surchargées si les deux méthodes suivent les règles suivantes :
+  + Les méthodes doivent avoir le même nom de méthode.
+  + Les méthodes doivent avoir des paramètres différents.
++ Si les méthodes suivent les règles ci-dessus:
+  + Ils peuvent ou non avoir des types de retour différents.
+  + Ils peuvent ou non avoir des modificateurs d'accès différents.
+  + Ils peuvent ou non lancer différentes exceptions cochées ou non cochées.
+
+### **Méthode remplacée**
+
++ Le remplacement de méthode signifie définir une méthode dans une classe enfant, qui existe déjà dans la classe parent, avec la même signature (le même nom, les mêmes arguments).
++ En étendant la classe parent, la classe enfant obtient toutes les méthodes définies dans la classe parent (ces méthodes sont également appelées méthodes dérivées).
++ Le remplacement de méthode est également connu sous le nom de polymorphisme d'exécution, ou répartition dynamique de méthode, car la méthode qui va être appelée est décidée au moment de l'exécution, par la machine virtuelle Java.
++ Lorsque l'on surcharge une méthode, il est recommandé de mettre @Override, immédiatement au-dessus de la définition de la méthode.
++ L'instruction `@Override` n'est pas obligatoire, mais c'est un moyen pour que le compilateur signale une erreur, si vous ne remplacez pas correctement cette méthode.
++ Nous obtiendrons une erreur si nous ne suivons pas correctement les règles dérogatoires.
++ Nous ne pouvons pas remplacer les méthodes statiques, seules les méthodes d'instance peuvent être remplacées.
+
+### **Règles de remplacement des méthodes**
+
++ Une méthode sera considérée comme remplacée si nous suivons ces règles.
+  + Il doit avoir le même nom et les mêmes arguments.
+  + Le type de retour peut être une sous-classe du type de retour dans la classe parent.
+  + Il ne peut pas avoir de modificateur d'accès inférieur. En d’autres termes, il ne peut pas avoir de privilèges d’accès plus restrictifs.
+  + Par exemple, si la méthode du parent est protégée, l'utilisation de private dans la méthode remplacée de l'enfant n'est pas autorisée. Cependant, l'utilisation de public pour la méthode de l'enfant serait autorisée, dans cet exemple.
+  + Il y a aussi quelques points importants à garder à l'esprit concernant le remplacement de méthode.
+  + Seules les méthodes héritées peuvent être remplacées, en d'autres termes, les méthodes ne peuvent être remplacées que dans les classes enfants.
+  + Les constructeurs et les méthodes privées ne peuvent pas être remplacés.
+  + Les méthodes définitives ne peuvent pas être remplacées.
+  + Une sous-classe peut utiliser `super.methodName()` pour appeler la version superclasse d'une méthode remplacée.
+
+
+### **Méthode de remplacement ou surcharge**
+
+|Surcharge de méthode|Remplacement de méthode|
+|--------------------------------|------------------------------|
+|Fournit une fonctionnalité permettant de réutiliser un nom de méthode avec différents paramètres.|Utilisé pour remplacer un comportement dont la classe a hérité de la classe parent.|
+|Généralement dans une seule classe, mais peut également être utilisé dans une classe enfant.|Toujours dans deux classes ayant une relation enfant-parent ou IS-A.|
+|Doit avoir des paramètres différents.|Doit avoir les mêmes paramètres et le même nom.|
+|Peut avoir différents types de retour.|Doit avoir le même type de retour ou le même type de retour covariant (classe enfant).|
+|Peut avoir différents modificateurs d'accès (privé, protégé, public).|Ne doit PAS avoir un modificateur inférieur mais peut avoir un modificateur supérieur.|
+|Peut lever différentes exceptions.|Ne doit PAS lancer une exception vérifiée nouvelle ou plus large.|
+
+### **Qu'est-ce qu'un bloc de texte**
++ Un `bloc de texte` n'est qu'un format spécial pour les littéraux de chaîne multilignes.
++ C'est simplement un `String`, avec une nouvelle représentation dans le code source.
++ Il est devenu une partie de la langue officielle du `JDK 15`.
+
+### **Quelques séquences d'échappement courantes**
++ Une séquence d'échappement commence par une barre oblique noire. Java en propose plusieurs, mais les plus courantes sont présentées sur cette diapositive.
+
+|Séquence d'échappement|Description|
+|-------------------|------------------------|
+|`\t`|Insérer un caractère de tabulation|
+|`\n`|Insérer un nouveau caractère de ligne|
+|`\"`|Insérer un guillemet double|
+|`\\`|Insérer une barre oblique noire|
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*nKpH32tX9hLOdBs9ppP3JA.png"/>
+
+### **La chaîne**
++ The String propose plus de 60 méthodes.
++ La chaîne est une séquence de caractères, c'est-à-dire son caractère, c'est-à-dire son ordre et son index.
++ L'index commence à 0, et non à 1.
+
+| Indice    |0| 1| 2| 3 | 4| 5| 6 | 7 | 8 | 9 | 10  |
+|-----------|---|-----|----|---|--|---|--|---|---|---|-----|
+| character |H|e|l| l |o|  | W | o | r | l   | d |
+
+### **Le but des méthodes String**
++ Nous pouvons diviser les méthodes de chaîne en trois catégories de base :
+  + Méthodes d'inspection `String`.
+  + Méthode de comparaison des valeurs `String`.
+  + Méthodes de manipulation `String`.
++ Commençons par examiner certaines des méthodes d'inspection `String`.
+
+### **Méthodes d'inspection des chaînes**
+
+| méthode               | description                                                                                                                       |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `length`              | Renvoie le nombre de caractères dans la`String`                                                                                   |
+| `charAt`              | Renvoie le caractère à l'index passé                                                                                              |
+| `indexOf lastIndexOf` | Renvoie un entier, représentant l'index dans la séquence où la `String` ou le caractère passé peut être situé dans la `String`    |
+| `isEmpty`             | Renvoie vrai si la longueur est nulle                                                                                             |
+| `isBalnk`             | Renvoie vrai si la longueur est nulle OU si la chaîne ne contient que des caractères d'espacement, ajoutés dans `JDK 11`.         |
+|`contentEquals`|Renvoie un booléen si la valeur de la chaîne est égale à la valeur de l'argument passé. Cette méthode autorise des arguments autres que `String`, pour tout type qui est une séquence de caractères.|
+|`equals`|Renvoie un booléen si la valeur de la chaîne est égale à la valeur de l'argument passé.|
+|`equalsIgnoreCase`|Renvoie un booléen si la valeur `String` est égale (cas d'enregistrement) à la valeur de l'argument passé.|
+|`contains`|Renvoie un booléen si la `String` contient l'argument passé|
+|`endsWith commenceWith`| Celles-ci renvoient un booléen et ressemblent beaucoup à la méthode contain, mais sont plus spécifiques au placement de l'argument dans le `String`|
+|`regionMatches`|Renvoie un booléen, si les sous-régions définies correspondent|
+
+
