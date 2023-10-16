@@ -277,7 +277,7 @@
 + Ce diagramme montre la classe Animal, avec les attributs que nous pensons que chaque type d'animal possède.
 + En dessous des champs, nous avons le comportement que les animaux ont en commun, bouger et faire du bruit.
 
-<img src = "C:\Java-Programming-Masterclass-updated-to-java17\Section7-OOP-Part1-Inheritance\images\animal_dog.jpg"/>
+<img src = "https://github.com/Etixi/Java-Programming-Masterclass-updated-to-java17/blob/c5d81af7857cb32afd588680a4a843faf1a4bb59/Section7-OOP-Part1-Inheritance/images/animal_dog.png"/>
 
 ### **<font color = "red">Modèle de classe pour animal et chien</font>**
 + Le chien hérite de l'animal.
@@ -313,3 +313,9 @@
   + Il peut implémenter un comportement complètement différent, remplaçant le parent.
   + Il peut simplement appeler la méthode de la classe actuelle, ce qui est quelque peu redondant
   + Ou la méthode peut appeler la méthode de la classe parent et inclure d'autres codes à exécuter, afin de pouvoir étendre les fonctionnalités du chien, pour ce comportement.
+
+### **<font color = "red">Polymorphisme</font>**
++ « Polymorphisme » signifie simplement « plusieurs formes ».
++ Et comme vous l'avez vu, certains des avantages du «Polymorphisme» sont :
+  + cela simplifie le code.
+  + cela encourage l'extensibilité du code.
