@@ -458,18 +458,28 @@
 
 ### **Méthodes d'inspection des chaînes**
 
-| méthode               | description                                                                                                                       |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `length`              | Renvoie le nombre de caractères dans la`String`                                                                                   |
-| `charAt`              | Renvoie le caractère à l'index passé                                                                                              |
-| `indexOf lastIndexOf` | Renvoie un entier, représentant l'index dans la séquence où la `String` ou le caractère passé peut être situé dans la `String`    |
-| `isEmpty`             | Renvoie vrai si la longueur est nulle                                                                                             |
-| `isBalnk`             | Renvoie vrai si la longueur est nulle OU si la chaîne ne contient que des caractères d'espacement, ajoutés dans `JDK 11`.         |
-|`contentEquals`|Renvoie un booléen si la valeur de la chaîne est égale à la valeur de l'argument passé. Cette méthode autorise des arguments autres que `String`, pour tout type qui est une séquence de caractères.|
-|`equals`|Renvoie un booléen si la valeur de la chaîne est égale à la valeur de l'argument passé.|
-|`equalsIgnoreCase`|Renvoie un booléen si la valeur `String` est égale (cas d'enregistrement) à la valeur de l'argument passé.|
-|`contains`|Renvoie un booléen si la `String` contient l'argument passé|
-|`endsWith commenceWith`| Celles-ci renvoient un booléen et ressemblent beaucoup à la méthode contain, mais sont plus spécifiques au placement de l'argument dans le `String`|
-|`regionMatches`|Renvoie un booléen, si les sous-régions définies correspondent|
+| méthode               | description                                                                                                                                                                                                                                 |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `length`              | Renvoie le nombre de caractères dans le`String`                                                                                                                                                                                             |
+| `charAt`              | Renvoie le caractère à l'index passé                                                                                                                                                                                                        |
+| `indexOf lastIndexOf` | Renvoie un entier, représentant l'index dans la séquence où le `String` ou le caractère passé peut être situé dans la `String`                                                                                                              |
+| `isEmpty`             | Renvoie vrai si la longueur est nulle                                                                                                                                                                                                       |
+| `isBalnk`             | Renvoie vrai si la longueur est nulle OU si la chaîne ne contient que des caractères d'espacement, ajoutés dans `JDK 11`.                                                                                                                   |
+| `contentEquals`       | Renvoie un booléen si la valeur de la chaîne est égale à la valeur de l'argument passé. Cette méthode autorise des arguments autres que `String`, pour tout type qui est une séquence de caractères.                                        |
+| `equals`              | Renvoie un booléen si la valeur de la chaîne est égale à la valeur de l'argument passé.                                                                                                                                                     |
+| `equalsIgnoreCase`    | Renvoie un booléen si la valeur `String` est égale (cas d'enregistrement) à la valeur de l'argument passé.                                                                                                                                  |
+| `contains`            | Renvoie un booléen si le `String` contient l'argument passé                                                                                                                                                                                 |
+| `endsWith startsWith`      | Celles-ci renvoient un booléen et ressemblent beaucoup à la méthode contain, mais sont plus spécifiques au placement de l'argument dans le `String`                                                                                         |
+| `regionMatches`       | Renvoie un booléen, si les sous-régions définies correspondent                                                                                                                                                                              |
+|`indent`| Cette méthode a été ajoutée dans `JDK 15` et ajoute ou supprime de ce début de ligne dans un texte multiligne.                                                                                                                              |
+|`strip stripLeading stripTrailing trim`| La différence entre la méthode `strip` et `trim` est que `strip()` prend en charge un plus grand ensemble de caractères d'espacement. Elle et les méthodes `stripLeading` ou `stripTrailing` correspondantes ont été ajoutées dans `JDK 11` |
+|`toLowerCase toUpperCase`| Renvoie un nouveau `String`, soit en minuscules, soit en majuscules                                                                                                                                                                         |
+|`concat`| Semblable à l'opérateur plus pour les chaînes, il concatène le texte du `String` et renvoie une nouvelle `String` comme résultat                                                                                                            |
+|`join`| Permet de concaténer plusieurs chaînes dans une seule méthode, en spécifiant un délimiteur                                                                                                                                                  |
+|`repeat`| Renvoie le `String` répété le nombre de fois spécifié dans l'argument                                                                                                                                                                       |
+|`replace replaceAll replaceFirst`| Ces méthodes remplacent des caractères ou des chaînes dans la chaîne, renvoyant une nouvelle `String` avec les remplacements effectués.                                                                                                     |
+|`substring subSequence`| Ceux-ci renvoient une partie du `String`, sa plage définie par l'index de début et de fin spécifié.                                                                                                                                         |
+
+
 
 
