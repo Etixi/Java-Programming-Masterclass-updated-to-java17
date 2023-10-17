@@ -93,4 +93,14 @@
 + Il existe d'autres moyens, mais dans cette partie, nous parlerons de la façon d'utiliser l'héritage, pour prendre en charge le « polymorphisme ».
 
 
+### **Qu'est-ce que var**
++ `var`, est un mot-clé contextuel spécial en Java, qui permet à notre code de profiter de l'inférence de type de variable locale.
++ En utilisant `var` comme type, nous demandons à Java de déterminer le type à la compilation pour nous.
 
+### **package**
++ La structure du package est hiérarchique, ce qui signifie que vous regroupez les types de manière arborescente.
++ Vous pouvez utiliser n'importe quel identifiant Java légal pour les noms de vos packages, mais la pratique courante consiste à utiliser des noms de packages en minuscules.
++ Le point sépare le niveau hiérarchique du package.
+
+### **Java Packages**
++ À présent, vous connaissez deux packages Java, `java.lang` et `java.util`.
