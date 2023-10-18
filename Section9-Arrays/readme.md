@@ -61,3 +61,34 @@
 
 
 + Un initialier de tableau anonyme, ne peut être utilisé que dans une instruction de déclaration.
+
+### **La boucle For améliorée, la boucle For Each**
++ Cette boucle a été conçue pour parcourir les éléments d'un tableau ou d'un autre élément d'une collection.
++ Il traite un élément à la fois, du premier élément au dernier.
++ Ici, je vous montre la syntaxe des deux types d'instructions de boucle for, côte à côte.
+
+| Enhanced For Loop                                                             | Basic For Loop                                                                   |
+|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| **for (declaration : collection) { <br/> // block of the statements <br/> }** | **for (init; expression; increment) { <br/> // block of the statements <br/> }** |
+
++ La boucle for améliorée n'a que deux composants, contre 3, définis entre parenthèses après le mot-clé for.
++ Il est important de noter que le caractère séparateur entre les composants est un deux-points, et non un point-virgule, pour la boucle For améliorée.
++ La première partie est une expression de déclaration, qui inclut les types et un nom de variable.
++ Il s'agit généralement d'une variable locale du même type qu'un élément d'un tableau.
++ Et le deuxième composant est le tableau, ou une autre variable de collection.
+
+### **Pourquoi utiliser des tableaux?**
++ Nous utilisons des « tableaux » pour gérer de nombreux éléments du même type.
++ Un comportement courant pour les « tableaux » serait le tri, l'initialisation des valeurs, la copie du tableau et la recherche d'un élément.
++ Pour un tableau, ce comportement n'est pas sur l'instance du tableau elle-même, mais il est fourni sur une classe d'assistance, `java.util.Arrays`.
+
+
+### **Récapitulatif des tableaux**
++ Un tableau est une structure de données qui nous permet de stocker plusieurs valeurs, du même type, dans une seule variable.
++ Les valeurs par défaut des éléments du tableau numérique sont définies sur zéro.
++ Les tableaux sont indexés à zéro, donc un tableau avec « n » éléments est indexé de 0 à « n-1 », par exemple, 10 éléments auraient une plage d'index de 0 à 9.
++ Si nous essayons d'accéder à un index hors plage, Java nous donnera une `ArrayIndexOutOfBoundsException`, qui indique que l'index est hors plage, en d'autres termes, hors limites.
++ Pour accéder aux éléments du tableau, nous utilisons des accolades. Ceci est également connu sous le nom d’opérateur d’accès au tableau.
+
+
+
