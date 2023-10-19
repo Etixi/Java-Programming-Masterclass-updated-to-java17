@@ -1,4 +1,4 @@
-package etienne.com.arraylist;
+package com.etienne.arraylist.com.arraylist;
 
 import java.util.ArrayList;
 public class MobilePhone {
