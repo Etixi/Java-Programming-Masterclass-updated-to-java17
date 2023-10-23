@@ -53,5 +53,20 @@
 + Les classes anonymes sont beaucoup moins utilisées, depuis l'introduction des `Expressions Lambda dans JDK 8`.
 + Mais il existe encore des cas où une classe anonyme pourrait être une bonne solution.
 
+### **Creation des Classes anonymes**
 
++ Une classe anonyme est instanciée et assignée dans une seule instruction.
++ Le mot-clé `new` est utilisé suivi de n'importe quel type.
++ Ce n'est « PAS » le type de la classe instanciée.
++ C'est la super classe de la classe anonyme, ou c'est l'interface que cette classe anonyme va implémenter comme je le montre ici.
 
+        var c4 = new Comparator<StoreEmployee>() {};
++ Dans le premier exemple de cette partie, la classe anonyme sans nom implémentera l'interface du comparateur.
+
+      var c4 = new Comparator<StoreEmployee>() {};
+
++ Dans le deuxième exemple de cette partie, la classe anonyme étend la classe `Employee`, ce qui signifie qu'il s'agit d'une sous-classe de `Employee`.
+
+      var e1 = new Employee {};
+
++ Dans les deux cas, il est important de se rappeler du point-virgule après la parenthèse fermante, car il s'agit d'une expression et non d'une déclaration.
