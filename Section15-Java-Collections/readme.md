@@ -58,3 +58,70 @@
 |default Stream<E>|	`stream()` <br/> Renvoie une séquence Stream avec cette collection comme source.|
 |Object[]|	`toArray()` <br/> Renvoie un tableau contenant tous les éléments de cette collection.|
 |<T> T[]|	`toArray(T[] a)` <br/> Renvoie un tableau contenant tous les éléments de cette collection ; le type d'exécution du tableau renvoyé est celui du tableau spécifié.|
+
+### **L'interface cartographique, pourquoi est-elle différente ?**
++ `Map` dans le cadre des collections est une autre structure de données.
++ Bien qu'il s'agisse toujours d'un regroupement d'éléments, c'est différent, car les éléments sont stockés avec des références saisies.
++ Cela signifie qu'une carte nécessite deux arguments de type, comme vous pouvez le voir sur cette partie, où je montre l'interface racine, Collection, Comparer à l'interface `Map`.
+
+
+| Collection Interface                        | Map Interface       |
+|---------------------------------------------|---------------------|
+| interface Collection<E> extends Iterable<E> | interface Map<K, V> |
+
++ Le `Map` a `K` pour son type de clé et `V` pour le type de valeur.
++ Comme pour toutes les classes génériques, la seule restriction sur ces types est qu'ils doivent être des types référence et non des primitives.
+
+### **Caractéristiques de la carte**
++ Un `Map` Java ne peut pas contenir de clés en double.
++ Chaque clé ne peut correspondre qu'à une seule valeur.
+
+### **Map Implementations (les classes qui implémentent Map)**
++ Dans les prochaines conférences, j'examinerai 3 des classes Java qui implémentent les interfaces `map`, le `HashMap`, le `LinkedHashMap` et le `TreeMap`.
++ Le `HashMap` n'est pas ordonné, le `LinkedHashMap` est trié par ordre d'insertion et le `TreeMap` est trié `map`.
+
+### **Implémentations de Map ordonnées et triées**
++ L'interface `Map` a les classes `LinkedHasMap et TreeMap`.
++ Le `LinkedHashMap` est une collection d'entrées de valeurs-clés, dont les clés sont classées par ordre d'insertion.
++ Le `TreeMap` est trié par ses clés, donc une clé doit implémenter Comparable, ou être initialisée, avec un Comparator spécifié.
+
+### **Collections de vues de TreeMap**
+| Afficher les méthodes de collecte                                                                                           | Remarques                                                                                                                                                                                                                                                                                                   |
+|-----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `entrySet(), keySet(), values()`                                                                                            | Fournit des vues des mappages, des clés et des valeurs. Ce sont des vues disponibles sur n'importe quelle carte, et pas seulement sur le « TreeMap ». Je les inclut ici, pour vous rappeler qu'il s'agit de « vues »                                                                                        |
+| `descendingKeySet()` <br/> `descendingKeyMap()`                                                                             | Fournit un jeu de clés ou une carte d'ordre inversé, inversé par les valeurs clés.                                                                                                                                                                                                                          |
+| `headMap(K key)` <br/> `headMap(K key, boolean inclusive)` <br/> `tailMap(K key)` <br/> `tailMap(K key, boolean inclusive)` | Fournit des vues de la première ou de la dernière partie de la carte, divisées par la clé transmise. <br/> La map `head` est par défaut `EXCLUSIVE` de tous les éléments supérieurs ou égaux à la clé. <br/> La carte `tail` est par défaut `INCLUSIVE` de tous les éléments supérieurs ou égaux à la clé.  |
+| `subMap(K fromKey, K toKey)` <br/> `subMap(K fromKey, boolean inclusive, K toKey, boolean inclusive)`                       | Fournit une vue de la section contiguë de la carte, supérieure ou égale au `fromkey` et inférieure au `tokey`, donc le `toKey est EXCLUSIF`. <br/> La version surchargée vous permet de déterminer l'inclusivité souhaitée pour les deux clés.                                                              |
+
+
+### **EnumSet et EnumMap**
++ Avant de continuer, je souhaite parler de deux autres classes dans le framework collections, spécialement créées pour prendre en charge plus efficacement les types enum.
++ Vous pouvez utiliser n'importe quelle « liste, ensemble ou carte » avec une constante enzyme.
++ Les `EnumSet et EnumMap`, chacun a une implémentation spéciale proposée par `HashSet ou HashMap`.
++ Ces implémentations rendent ces deux types extrêmement compacts et efficaces.
++ Il n'y a pas d'implémentation de liste spéciale pour les types enum.
+
+### **L'EnumSet**
++ EnumSet est une implémentation Set spécialisée à utiliser avec les valeurs enum.
++ Tous les éléments d'un `EnumSet` doivent provenir d'un seul type enum.
++ Le `EnumSet` est abstrait, ce qui signifie que nous ne pouvons pas l'instancier directement.
++ Il est livré avec des méthodes d'usine pour créer des instances.
++ En général, cet ensemble a de bien meilleures performances que l'utilisation d'un `HashSet`, avec un type enum.
++ Les opérations groupées (telles que `containsAll` et `retainAll`) devraient s'exécuter très rapidement, en temps constant, `O(1)`, si elles sont exécutées sur un `enumSet` et que leur argument est un `EnumSet`.
+
+### **L'EnumMap**
++ Le `Enum Map` est une implémentation spécialisée de `Map` à utiliser avec les clés de type enum.
++ Les clés doivent toutes provenir du même type d'énumération, et elles sont naturellement classées par la valeur ordonnée des constantes d'énumération.
++ Cette `map` a les mêmes fonctionnalités qu'une `HashMap`, avec `O(1)` pour les opérations de base.
++ Le type de clé enum est spécifié lors de la construction de `EnumMap`, soit explicite en passant la classe du type de clé, soit implicitement en passant un autre `EnumSet`.
++ En général, cette `map` a de meilleures performances que l'utilisation d'un `HashMap`, avec un type enum.
+
+
+### **Deux types d'implémentations d'EnumSet**
++ Les ensembles d'énumérations sont représentés en interne sous forme de vecteurs de bits, qui ne sont qu'une série de uns et de zéros.
++ Un un indique que la constante enum (avec une valeur ordinale égale à l'index du bit) est dans l'ensemble.
++ Un zéro indique que la constante enum n'est pas dans l'ensemble.
++ L'utilisation d'un vecteur de bits permet à toutes les opérations d'ensemble d'utiliser le calcul des bits, ce qui le rend très rapide.
++ Un `RegularEnumSet` utilise un seul long as comme vecteur de bits, ce qui signifie qu'il peut contenir un maximum de 64 bits, représentant 64 valeurs d'énumération.
++ Un `JumboEnumSet` est renvoyé si vous avez plus de 64 énumérations.
+
