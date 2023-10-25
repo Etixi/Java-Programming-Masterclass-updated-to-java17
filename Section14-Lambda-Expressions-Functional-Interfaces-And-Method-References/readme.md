@@ -280,5 +280,155 @@
 + Ou vous pouvez référencer un constructeur, en utilisant `new` comme méthode.
 
 
+### **L'interface de collecte**
++ Nous avons couvert la plupart de ces méthodes, mais je voulais que vous voyiez ici que la plupart d'entre elles traitent d'un index.
++ Une liste peut être soit indexée, comme une `ArrayList`, soit non, comme une `LinkedList`, mais une `LinkedList` est également implémentée pour prendre en charge toutes ces méthodes.
++ Les interfaces dérivées peuvent avoir des moyens spécifiques pour « ajouter, supprimer, obtenir et trier des éléments pour leur type spécifique de collection, en plus de ceux définis sur l'interface « Collection » elle-même.
++ Examinons maintenant la situation générale des interfaces et quelques implémentations spécifiques.
 
+### **Collections – Vue d'ensemble**
++ Cette diapositive montre la hiérarchie de l'interface. Il s'agit également d'afficher les implémentations ou classes concrètes qui implémentent ces interfaces, en police jaune.
++ Notez que Map n'étend pas la collection, bien qu'il fasse toujours partie de ce framework.
++ Les `Map` sont particulièrement différentes et je vais m'exprimer lorsque j'aborderai les cartes dans cette section.
++ Vous pouvez voir que `LinkedList` implémente à la fois `List et Deque`, et j'en ai discuté en détail lorsque j'ai couvert `LinkedLists`.
+
+### **La liste**
++ `A List` est une collection ordonnée (également connue sous le nom de séquence).
++ Celles-ci peuvent être séquencées en mémoire comme une `ArrayList`, ou maintenir des liens vers les valeurs suivantes et précédentes, comme une `LinkedList`.
+
+### **La queue**
++ `Queue` est une collection conçue pour contenir des éléments avant le traitement, dans l'ordre, en d'autres termes, l'ordre de traitement compte, de sorte que les première et dernière positions, ou la tête et la queue, sont priorisées.
++ Le plus souvent, ceux-ci peuvent être implémentés comme « First In, First Out (FIFO) », mais peuvent être implémentés comme une « Stack, comme Last In First OUT (LIFO) » dont nous avons discuté.
++ N'oubliez pas qu'un `Dequeue` prend en charge les deux.
+
+### **A Set**
++ `Set` est une collection conceptuellement basée sur un ensemble mathématique.
++ Surtout, il ne contient « aucun élément en double » et n'est pas naturellement séquencé ou ordonné.
++ Vous pouvez considérer un ensemble comme une sorte de regroupement chaotique d'objets.
++ Java a trois implémentations, que j'examinerai en détail dans cette section du cours, le `HashSet`, le `TreeSet et le LinkedHashSet.`
+  +Ceux-ci se distinguent par la manière sous-jacente avec laquelle ils stockent les éléments dans l'ensemble.
++ Un ensemble trié est un ensemble qui fournit un ordre total des éléments.
+
+### **A Map**
++ `A Map` est une collection qui stocke les paires clé et valeur.
++ Les clés sont un ensemble et les valeurs sont une collection distincte, où la clé conserve une référence à une valeur.
++ Les clés doivent être uniques, mais pas les valeurs.
++ Les éléments d'une arborescence sont stockés dans un nœud de valeur clé, également appelé « entrée 
++ ».
+
+### **Qu'est-ce qu'un algorithme polymorphe?**
++ La documentation d'Oracle décrit un algorithme polymorphe comme une fonctionnalité réutilisable.
++ À une époque, la plupart de ces méthodes nous étaient fournies, en tant que méthodes statiques, sur une classe appelée `java.util.Collections.`
++ Depuis `JDK-8` et l'avènement de multiples améliorations d'interface, certaines de ces méthodes sont désormais sur les interfaces elles-mêmes, en tant que méthodes par défaut ou statiques.
++ Mais pas de tous, je vais donc discuter de cette classe et de ce qu'elle a à offrir, par rapport à ce qui est disponible dans chaque classe de collection.
++ Il est également important de comprendre que le code existant utilisera cette classe pour certaines opérations, qui peuvent être effectuées à partir de la classe elle-même.
+
+### **Comprendre l'importance du code de hachage**
++ `HashSet et HashMap`, sont basés sur les codes de hachage des objets.
++ Cela peut être un sujet déroutant pour les nouveaux programmeurs, je souhaite donc passer un peu plus de temps à l'expliquer.
++ Étant donné que les ensembles sont uniques car ils ne prennent pas en charge les doublons, l'ajout d'un élément entraîne toujours le coût de la première vérification d'une correspondance.
++ Si votre ensemble est grand ou très grand, cela devient une opération coûteuse, O(n) ou un temps linéaire, si vous vous souvenez des notations Big O que j'ai abordées précédemment.
++ Un mécanisme pour réduire ce coût est introduit par quelque chose appelé hachage.
++ Si nous créions deux compartiments d'éléments et que l'élément pouvait identifier consciencieusement dans quel compartiment il était stocké, alors la recherche pourrait être réduite de moitié.
++ Si nous créions quatre buckets, nous pourrions réduire le coût d'un quart.
++ Une collection hachée créera de manière optimale un ensemble limité de buckets, pour fournir une répartition uniforme des objets dans les buckets dans un ensemble complet.
++ Un code de hachage peut être n'importe quel entier valide, il peut donc s'agir de l'un des 4,2 milliards de nombres valides.
++ Si votre collection ne contient que 100 0000 éléments, vous ne voulez pas la sauvegarder avec un mécanisme de stockage de 4 milliards d'espaces réservés possibles.
++ Et vous ne voulez pas avoir à parcourir 100 000 éléments un par un pour trouver une correspondance ou un doublon.
++ Un mécanisme de hachage prendra un code de hachage `integer` et une déclaration de capacité qui spécifie le nombre de buckets sur lesquels répartir les objets.
++ Il traduit ensuite la plage de codes de hachage en une plage d'identifiants de compartiment.
++ Les implémentations hachées utilisent une combinaison du code de hachage et d'autres moyens, pour fournir le système de regroupement le plus efficace, afin d'obtenir cette distribution uniforme souhaitée des objets.
+
+### **Le hachage commence par comprendre l'égalité**
++ Pour comprendre le hachage en Java, je pense qu'il est utile de d'abord comprendre l'égalité des objets.
++ J'en ai parlé dans des vidéos précédentes, mais je veux maintenant être sûr que vous comprenez parfaitement ce sujet, car il est important lorsqu'il s'agit de collections hachées.
++ Il existe deux méthodes sur `java.util.Object`, dont tous les objets héritent.
++ Ce sont `equals et hashCode`, et je montre ici les signatures de méthode de `Object`.
+
+| Testing for equality                  | The hashcode method       |
+|---------------------------------------|---------------------------|
+| **public boolean equals(Object obj)** | **public int hashCode()** |
+
+### **La méthode égale sur l'objet**
++ L'implémentation d'égal à égal sur Object est présentée ici.
++ Il renvoie simplement `this == obj`.(code)
+  
+          public boolean equals(Object obj) {
+              return (this == obj)
+          }
+
+### **Vous souvenez-vous de ce que == signifie pour les objets**
++ Vous souvenez-vous de « ce que == signifie » pour les objets ?
++ Cela signifie que deux variables ont la « même référence à un seul objet en mémoire ».
++ Étant donné que les deux références pointent vers le même objet, il s'agit évidemment d'un bon test d'égalité.
+### **Égalité des objets**
++ Les « objets » peuvent également être considérés comme égaux dans d'autres cas, si leurs valeurs d'attribut sont égales, par exemple.
++ La classe `String` remplace cette méthode, de sorte qu'elle compare tous les caractères de chaque `String`, pour confirmer que deux `Strings` sont égales.
+
+
+### **L'interface cartographique, pourquoi est-elle différente ?**
++ `Map` dans le cadre des collections est une autre structure de données.
++ Bien qu'il s'agisse toujours d'un regroupement d'éléments, c'est différent, car les éléments sont stockés avec des références saisies.
++ Cela signifie qu'une carte nécessite deux arguments de type, comme vous pouvez le voir sur cette partie, où je montre l'interface racine, Collection, Comparer à l'interface `Map`.
+
+
+| Collection Interface                        | Map Interface       |
+|---------------------------------------------|---------------------|
+| interface Collection<E> extends Iterable<E> | interface Map<K, V> |
+
++ Le `Map` a `K` pour son type de clé et `V` pour le type de valeur.
++ Comme pour toutes les classes génériques, la seule restriction sur ces types est qu'ils doivent être des types référence et non des primitives.
+
+### **Caractéristiques de la carte**
++ Un `Map` Java ne peut pas contenir de clés en double.
++ Chaque clé ne peut correspondre qu'à une seule valeur.
+
+### **Map Implementations (les classes qui implémentent Map)**
++ Dans les prochaines conférences, j'examinerai 3 des classes Java qui implémentent les interfaces `map`, le `HashMap`, le `LinkedHashMap` et le `TreeMap`.
++ Le `HashMap` n'est pas ordonné, le `LinkedHashMap` est trié par ordre d'insertion et le `TreeMap` est trié `map`.
+
+### **Implémentations de Map ordonnées et triées**
++ L'interface `Map` a les classes `LinkedHasMap et TreeMap`.
++ Le `LinkedHashMap` est une collection d'entrées de valeurs-clés, dont les clés sont classées par ordre d'insertion.
++ Le `TreeMap` est trié par ses clés, donc une clé doit implémenter Comparable, ou être initialisée, avec un Comparator spécifié.
+
+### **Collections de vues de TreeMap**
+| Afficher les méthodes de collecte                                                                                           | Remarques                                                                                                                                                                                                                                                                                                   |
+|-----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `entrySet(), keySet(), values()`                                                                                            | Fournit des vues des mappages, des clés et des valeurs. Ce sont des vues disponibles sur n'importe quelle carte, et pas seulement sur le « TreeMap ». Je les inclut ici, pour vous rappeler qu'il s'agit de « vues »                                                                                        |
+| `descendingKeySet()` <br/> `descendingKeyMap()`                                                                             | Fournit un jeu de clés ou une carte d'ordre inversé, inversé par les valeurs clés.                                                                                                                                                                                                                          |
+| `headMap(K key)` <br/> `headMap(K key, boolean inclusive)` <br/> `tailMap(K key)` <br/> `tailMap(K key, boolean inclusive)` | Fournit des vues de la première ou de la dernière partie de la carte, divisées par la clé transmise. <br/> La map `head` est par défaut `EXCLUSIVE` de tous les éléments supérieurs ou égaux à la clé. <br/> La carte `tail` est par défaut `INCLUSIVE` de tous les éléments supérieurs ou égaux à la clé.  |
+| `subMap(K fromKey, K toKey)` <br/> `subMap(K fromKey, boolean inclusive, K toKey, boolean inclusive)`                       | Fournit une vue de la section contiguë de la carte, supérieure ou égale au `fromkey` et inférieure au `tokey`, donc le `toKey est EXCLUSIF`. <br/> La version surchargée vous permet de déterminer l'inclusivité souhaitée pour les deux clés.                                                              |
+
+
+### **EnumSet et EnumMap**
++ Avant de continuer, je souhaite parler de deux autres classes dans le framework collections, spécialement créées pour prendre en charge plus efficacement les types enum.
++ Vous pouvez utiliser n'importe quelle « liste, ensemble ou carte » avec une constante enzyme.
++ Les `EnumSet et EnumMap`, chacun a une implémentation spéciale proposée par `HashSet ou HashMap`.
++ Ces implémentations rendent ces deux types extrêmement compacts et efficaces.
++ Il n'y a pas d'implémentation de liste spéciale pour les types enum.
+
+### **L'EnumSet**
++ EnumSet est une implémentation Set spécialisée à utiliser avec les valeurs enum.
++ Tous les éléments d'un `EnumSet` doivent provenir d'un seul type enum.
++ Le `EnumSet` est abstrait, ce qui signifie que nous ne pouvons pas l'instancier directement.
++ Il est livré avec des méthodes d'usine pour créer des instances.
++ En général, cet ensemble a de bien meilleures performances que l'utilisation d'un `HashSet`, avec un type enum.
++ Les opérations groupées (telles que `containsAll` et `retainAll`) devraient s'exécuter très rapidement, en temps constant, `O(1)`, si elles sont exécutées sur un `enumSet` et que leur argument est un `EnumSet`.
+
+### **L'EnumMap**
++ Le `Enum Map` est une implémentation spécialisée de `Map` à utiliser avec les clés de type enum.
++ Les clés doivent toutes provenir du même type d'énumération, et elles sont naturellement classées par la valeur ordonnée des constantes d'énumération.
++ Cette `map` a les mêmes fonctionnalités qu'une `HashMap`, avec `O(1)` pour les opérations de base.
++ Le type de clé enum est spécifié lors de la construction de `EnumMap`, soit explicite en passant la classe du type de clé, soit implicitement en passant un autre `EnumSet`.
++ En général, cette `map` a de meilleures performances que l'utilisation d'un `HashMap`, avec un type enum.
+
+
+### **Deux types d'implémentations d'EnumSet**
++ Les ensembles d'énumérations sont représentés en interne sous forme de vecteurs de bits, qui ne sont qu'une série de uns et de zéros.
++ Un un indique que la constante enum (avec une valeur ordinale égale à l'index du bit) est dans l'ensemble.
++ Un zéro indique que la constante enum n'est pas dans l'ensemble.
++ L'utilisation d'un vecteur de bits permet à toutes les opérations d'ensemble d'utiliser le calcul des bits, ce qui le rend très rapide.
++ Un `RegularEnumSet` utilise un seul long as comme vecteur de bits, ce qui signifie qu'il peut contenir un maximum de 64 bits, représentant 64 valeurs d'énumération.
++ Un `JumboEnumSet` est renvoyé si vous avez plus de 64 énumérations.
 
