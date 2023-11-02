@@ -1,6 +1,8 @@
 package com.etixi.todoList.datamodel;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,7 +22,8 @@ public class TodoData {
 
 	private static TodoData instance = new TodoData();
 	private static String filename = "files/TodoListItems.txt";
-	private List<TodoItem> todoItems;
+
+	private ObservableList<TodoItem> todoItems;
 	private DateTimeFormatter formatter;
 
 	public static TodoData getInstance() {
@@ -31,7 +34,7 @@ public class TodoData {
 		formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	}
 
-	public List<TodoItem> getTodoItems() {
+	public ObservableList<TodoItem> getTodoItems() {
 		return todoItems;
 	}
 
@@ -39,12 +42,8 @@ public class TodoData {
 		todoItems.add(item);
 	}
 
-
-	/*public void setTodoItems(List<TodoItem> todoItems) {
-		this.todoItems = todoItems;
-	}*/
-
 	public void loadTodoItems() throws IOException {
+
 		todoItems = FXCollections.observableArrayList();
 		Path path = Paths.get(filename);
 		BufferedReader br = Files.newBufferedReader(path);
@@ -54,6 +53,7 @@ public class TodoData {
 		try {
 			while ((input = br.readLine()) != null) {
 				String[] itemPieces = input.split("\t");
+
 				String shortDescription = itemPieces[0];
 				String details = itemPieces[1];
 				String dateString = itemPieces[2];
@@ -62,30 +62,37 @@ public class TodoData {
 				TodoItem todoItem = new TodoItem(shortDescription, details, date);
 				todoItems.add(todoItem);
 			}
+
 		} finally {
-			if (br != null) {
+			if(br != null) {
 				br.close();
 			}
 		}
 	}
 
 	public void storeTodoItems() throws IOException {
+
 		Path path = Paths.get(filename);
 		BufferedWriter bw = Files.newBufferedWriter(path);
 		try {
 			Iterator<TodoItem> iter = todoItems.iterator();
-			while (iter.hasNext()) {
+			while(iter.hasNext()) {
 				TodoItem item = iter.next();
 				bw.write(String.format("%s\t%s\t%s",
 						item.getShortDescription(),
 						item.getDetails(),
-						item.getDeadLine().format(formatter)));
+						item.getDeadline().format(formatter)));
 				bw.newLine();
 			}
+
 		} finally {
-			if (bw != null) {
+			if(bw != null) {
 				bw.close();
 			}
 		}
+	}
+
+	public void deleteTodoItem(TodoItem item) {
+		todoItems.remove(item);
 	}
 }
