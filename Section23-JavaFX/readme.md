@@ -5,9 +5,10 @@
 
 ### **Téléchargement**
 
-| Telechargement |
-|----------------|
-| [JavaFX-11](https://gluonhq.com/products/javafx/)  |
+| Telechargement                                    |
+|---------------------------------------------------|
+| [JavaFX-11](https://gluonhq.com/products/javafx/) |
+| [SceneBuilder](https://gluonhq.com/products/scene-builder/thanks/?dl=/download/scene-builder-windows-x64/)                                  |
 
 
 ### **Class FX Collections**
