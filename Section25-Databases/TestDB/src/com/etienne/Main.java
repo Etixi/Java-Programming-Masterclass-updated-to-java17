@@ -10,8 +10,8 @@ public class Main {
 	public static final String COLUMN_PHONE = "phone";
 	public static final String COLUMN_EMAIL = "email";
 	private static final String DB_DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
-	private static final String DB_USERNAME = "Etienne";
-	private static final String DB_PASSWORD = "Caroline1995@";
+	private static final String DB_USERNAME = "xxxxxxxx";
+	private static final String DB_PASSWORD = "xxxxxxxxxxx";
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/testdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 	// "jdbc:mysql://localhost:3306/jdbcdb?useSSL=false&verifyServerCertificate=false&serverTimezone=UTC";
 	private static Connection connection = null;
