@@ -13,12 +13,12 @@
 #### **Jshell**
 
 + JShell est devenu un composant standard du kit Java Developers dans Java 9.
-+ Il s'agit de ce qu'on appelle le programme interactif Read-Eval-Print-Loop (ou REPL en abrégé), ce qui signifie qu'il fait à peu près exactement cela :
-    + Il « lit » la commande ou le segment de code que nous tapons.
++ Il s'agit dev ce qu'on appelle le programme interactif Read-Eval-Print-Loop (ou REPL en abrégé), ce qui signifie qu'il fait à peu près exactement cela :
+    + Il « lit » la commande ou le segment dev code que nous tapons.
     + Il « évalue » et exécute le code, et permet souvent d'utiliser des raccourcis.
-    + Il « imprime » les résultats de l'évaluation ou de l'exécution, sans obliger le développeur à écrire du code pour afficher les résultats.
-    + Enfin, il revient en boucle pour plus d'entrées (plus de segments de code ou de commandes).
-      JShell s'exécute dans un terminal (ou sur la ligne de commande pour Windows) et est utile pour essayer rapidement de nouvelles idées.
+    + Il « imprime » les résultats dev l'évaluation ou dev l'exécution, sans obliger le développeur à écrire du code pour afficher les résultats.
+    + Enfin, il revient en boucle pour plus d'entrées (plus dev segments dev code ou dev commandes).
+      JShell s'exécute dans un terminal (ou sur la ligne dev commande pour Windows) et est utile pour essayer rapidement dev nouvelles idées.
 
 + JShell ne remplace pas le besoin d'un IDE.
 + C'est juste un outil pratique pour démarrer rapidement avec Java. Nous passerons à un IDE plus tard dans le cours.

@@ -6,7 +6,7 @@
 
 + Qu'est-ce que les espaces ?
     + Les espaces sont tout espace supplémentaire, horizontalement ou verticalement, placé autour du code source Java.
-    + Il est généralement ajouté à des fins de lisibilité humaine.
+    + Il est généralement ajouté à des fins dev lisibilité humaine.
     + En Java, tous ces espaces supplémentaires sont ignorés.
 
 ### **If-Else If-Else block Structure**

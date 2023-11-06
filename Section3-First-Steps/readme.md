@@ -82,9 +82,9 @@
 
 ### **Primitive Types**
 
-#### **Types primitifs de Java**
-+ En Java, les types primitifs sont les types de données les plus basiques.
-+ Les huit types de données primitifs en Java sont présentés dans le tableau ci-dessous, répertoriés par type de données stockées chacun :
+#### **Types primitifs dev Java**
++ En Java, les types primitifs sont les types dev données les plus basiques.
++ Les huit types dev données primitifs en Java sont présentés dans le tableau ci-dessous, répertoriés par type dev données stockées chacun :
 
 | Nombre entier        | Nombre réel (virgule flottante ou décimale) |
 |----------------------|---------------------------------------------|
@@ -132,9 +132,9 @@
                 Integer Value Range (-2147483648 to 2147483647)
 
 #### **Wrapper Classes**
-+ Java utilise le concept de classe wrapper, pour l'ensemble de ses huit types de données primitifs.
-+ Une `classe wrapper` fournit des opérations simples, ainsi que quelques informations de base sur le type de données primitives, qui ne peuvent pas être stockées sur la primitive elle-même.
-+ Nous avons vu `MIN_VALUE` et `MAX_VALUE`, sont des éléments de ces informations de base, pour le type de données int.
++ Java utilise le concept dev classe wrapper, pour l'ensemble dev ses huit types dev données primitifs.
++ Une `classe wrapper` fournit des opérations simples, ainsi que quelques informations dev base sur le type dev données primitives, qui ne peuvent pas être stockées sur la primitive elle-même.
++ Nous avons vu `MIN_VALUE` et `MAX_VALUE`, sont des éléments dev ces informations dev base, pour le type dev données int.
 + Les types primitifs et leurs classes wrapper respectives sont indiqués dans le tableau ci-dessous.
 
 
@@ -152,7 +152,7 @@
 #### **Sous-débordement et débordement en Java**
 + La valeur maximale, lorsqu'elle dépasse la valeur minimale, et continue simplement le traitement sans erreur.
 + La valeur minimale, lorsqu'elle dépasse, revient à la valeur maximale et continue le traitement.
-+ Ce n'est généralement pas un comportement que vous souhaitez vraiment, et en tant que développeur, vous devez être conscient que cela peut se produire et choisir le type de données approprié.
++ Ce n'est généralement pas un comportement que vous souhaitez vraiment, et en tant que développeur, vous devez être conscient que cela peut se produire et choisir le type dev données approprié.
 
 
             jshell> System.out.println("Busted Max Value = " + (myMaxIntValue + 1));
@@ -181,21 +181,21 @@
 
 ### **byte, short, int, long**
 
-+ Nous avons déjà dit que Java avait quatre types de données primitifs utilisés pour les nombres entiers, à savoir : byte, short, int et long.
++ Nous avons déjà dit que Java avait quatre types dev données primitifs utilisés pour les nombres entiers, à savoir : byte, short, int et long.
 
    
-| Nombre entier - Type de données | Classe d'emballage | Ce qui est remarquable|
+| Nombre entier - Type dev données | Classe d'emballage | Ce qui est remarquable|
 |---------------------------------|--------------------|----------------------|
 | byte                            |Byte|A la plus petite portée.|
 | short                           |Short||
-| int                             |Integer|Type de données par défaut de Java pour les nombres entiers.|
+| int                             |Integer|Type dev données par défaut dev Java pour les nombres entiers.|
 | long                            |Long|A la plus grande portée.|
 
 
-+ Ils sont répertoriés ici dans ce tableau, selon la plage de valeurs que le type prendra en charge, l'octet prend en charge la plus petite plage et le long prend en charge la plus grande plage.
++ Ils sont répertoriés ici dans ce tableau, selon la plage dev valeurs que le type prendra en charge, l'octet prend en charge la plus petite plage et le long prend en charge la plus grande plage.
 
 #### **Taille des types primitifs et largeur**
-+ La taille, ou largeur, est la quantité d'espace qui détermine (ou limite) la plage de valeurs dont nous avons discuté.
++ La taille, ou largeur, est la quantité d'espace qui détermine (ou limite) la plage dev valeurs dont nous avons discuté.
 
 | Data Type | Width(in bits) | Min Value | Max Value           |                                                   
 |-----------|----------------|--|---------------------|
@@ -237,7 +237,7 @@
 
 + Caster signifie traiter ou convertir un nombre, d'un type à un autre. Nous mettons le type que nous voulons que le numéro soit, entre parenthèses comme ceci:
     + `(byte) (myMinByteValue / 2);`
-+ D'autres langages ont également du casting, c'est une pratique courante et pas seulement une affaire de Java.
++ D'autres langages ont également du casting, c'est une pratique courante et pas seulement une affaire dev Java.
 
 
         jshell> short myMinShortValue = Short.MIN_VALUE; int myMinIntValue = Integer.MIN_VALUE;
@@ -314,7 +314,7 @@
 
 #### **Float and Double Primitives**
 
-+ La précision fait référence au format et à la quantité d'espace occupé par le type concerné. Cela montre la largeur de chacun des types à virgule flottante et leurs plages. Les plages sont affichées dans la notation scientifique Java, que nous montrons ci-dessous en bleu.
++ La précision fait référence au format et à la quantité d'espace occupé par le type concerné. Cela montre la largeur dev chacun des types à virgule flottante et leurs plages. Les plages sont affichées dans la notation scientifique Java, que nous montrons ci-dessous en bleu.
 
 | Data Type | Width(in bits) | Min Value | Max Value              |
 |-----------|----------------|-----------|------------------------|
@@ -412,9 +412,9 @@
 | Littéral entre guillemets simples. | Littéral entre guillemets doubles. |
 
 + Il existe trois façons d'attribuer une valeur à char: 
-  + Chacune de ces méthodes représente le stockage de la lettre, D majuscule, en mémoire.
+  + Chacune dev ces méthodes représente le stockage dev la lettre, D majuscule, en mémoire.
 
-|Type d'affectation| Exemple de code         |
+|Type d'affectation| Exemple dev code         |
 |------------------|-------------------------|
 |un caractère littéral| char myChar = 'D';      |
 |une valeur Unicode| char myChar = '\u0044'; |
@@ -570,11 +570,11 @@
 #### **Abbreviating Operators**
 
 
-| Opérateur abrégé (ou abrégé)                    |Exemple de code|
+| Opérateur abrégé (ou abrégé)                    |Exemple dev code|
 |-------------------------------------------------|----------------------|
 | Opérateur d'incrémentation post-correction      |result++;|
 | Opérateur d'affectation composé avec le signe + |résultat += 1;|
-| Opérateur de décrémentation post-correction     |résultat--;|
+| Opérateur dev décrémentation post-correction     |résultat--;|
 | Opérateur d'affectation composé avec le signe - |result-=1;|
 
 
