@@ -209,3 +209,76 @@
 |submit| **`Future<?> submit(Runnable task)`** <br/> **`<T> Future<T> submit(runnable task, T result)`** <br/> **`<T> Future<T> submit(Callable<T> task)`**  |
 
 
+### **Classes Map**
+
+|                               | Sorted | Blocking | Thread-Safe | Stream Pipeline - Collectors Method                          |
+|-------------------------------|--------|----------|-------------|--------------------------------------------------------------|
+| `HashMap`                     | No     | No       | No          | `.collect(groupingBy(Function classifier, ...))`              |
+| `TreeMap`                     | Yes    | No       | No          | `.collect(TreeMap<KeyType, valueType>::new, ...)`             |
+| `ConcurrentHashMap`           | No     | No       | Yes         | `.collect(groupingByConcurrent(Function classifier, ...))`     |
+| `ConcurrentSkipListMap`       | Yes    | No       | Yes         | `.collect(concurrentSkipListMap<KeyType, valueType>::new, ...)` |
+| `Collections$SynchronizedMap` | Yes    | Yes      | Yes         |                                                              |
+
+
+### **Classes simultanées et classe Wrapper synchronisée**
++ Les collections simultanées et synchronisées sont thread-safe et peuvent être utilisées dans des flux parallèles ou dans une application multithread.
+  + `Collections synchronisées` : sont implémentées à l'aide de verrous qui protègent la collection des accès concurrents. Cela signifie qu'un seul verrou est utilisé pour synchroniser l'accès à l'ensemble de la carte.
+  + `Collections simultanées` : sont plus efficaces que les collections synchronisées, car elles utilisent des techniques telles que le verrouillage à granularité fine ou des algorithmes non bloquants pour permettre un accès simultané sécurisé sans avoir besoin d'un verrouillage lourd, c'est-à-dire des verrous synchronisés ou à accès unique.
++ Les collections simultanées sont recommandées plutôt que les collections synchronisées dans la plupart des scénarios.
+
+
+### **Ajout d'un élément à ArrayBlockingQueue**
++ Dans cette partie, vous pouvez voir quatre méthodes que vous pouvez utiliser pour ajouter un élément à `ArrayBlockingQueue`.
+
+
+|| Block?      | Returns | Throws InterruptedException ?               | Adds To Queue |
+|-|-------------|---------|---------------------------------------------|---------------|
+|`add(E e)`| No          | boolean | No, throws IllegalStateException(Unchecked) | Yes           |
+|`offer(E e)`| No          | boolean | No                                          | Yes           |
+|`offer(E e, long timeout, TimeUnit unit)`| Temporarily | boolean | Yes                                         | Yes           |
+|`put(E e)`| Yes         | void    | Yes                                         | Yes           |
+
+
+### **CopyOnWriteArrayList**
++ Le nom `CopyOnWrite` est important.
++ Chaque fois que cette liste est modifiée, en ajoutant, mettant à jour ou supprimant des éléments, une nouvelle copie du tableau sous-jacent est créée.
++ Cette modification est effectuée sur la nouvelle copie, permettant aux opérations de lecture simultanées d'utiliser le tableau d'origine non modifié.
++ Cela garantit que les fils de discussion des lecteurs ne sont pas bloqués par les rédacteurs.
++ Étant donné que les modifications sont apportées à une copie distincte du tableau, il n'y a aucun problème de synchronisation entre les threads de lecture et d'écriture.
++ Ceci est habituellement, mais peut être plus efficace que les alternatives lorsque les opérations de traversée dépassent largement le nombre de mutations.
+
+### **Suppression d'un seul élément de ArrayBlockingQueue**
++ `ArrayBlockingQueue` dispose de plusieurs méthodes différentes pour récupérer un élément de la file d'attente.
+
+|                                    | Blocks?                  | Returns                  | Throws InterruptedException | Removes different from Queue |
+|------------------------------------|--------------------------|--------------------------|-----------------------------|------------------------------|
+| `peek()`                           | No                       | Array item or null       | No                          | No                           |
+| `poll()`                           | No                       | Array item or null       | No                          | Yes                          |
+| `poll(lon timeout, TimeUnit unit)` | Temporarily              | Array item or null       | Yes                         | Yes                          |
+| `remove()`                         | Yes, When Queue is empty | Array item               | No                          | Yes                          |
+| `remove(Object o)`                 | No                       | No                       | No                          | Yes, if o was in the queue   |
+| `take()`                           | Yes, When Queue is empty | Yes, When Queue is empty | Yes                         | Yes                          |
+
+
+
+### **Les problèmes courants dans une application multithread**
+
+|Problème| Description                                                                                         |
+|---------|-----------------------------------------------------------------------------------------------------|
+|`Deadlock`| Deux threads ou plus sont bloqués, attendant que l'autre libère une ressource                       |
+|`Livelock`| Deux threads ou plus tournent en boucle en permanence, chacun attendant que l'autre thread agisse.  |
+|`Starvation`| Un thread n'est pas en mesure d'obtenir les ressources dont il a besoin pour s'exécuter             |
+
+
+### **Classes Atomic**
+
++ Le package `java.util.concurrent.atomic` possède plusieurs classes atomiques comme indiqué dans cette partie, y compris des tableaux atomiques.
++ Dans chacun de ces cas, une instance d'une de ces classes peut être mise à jour atomiquement.
++ Permettez-moi de vous encourager à consulter cette boîte à outils si vous travaillez sur des applications simultanées.
+
+|**Single Element**| **Array of Elements**      |
+|-------------------|----------------------------|
+|**`AtomicBoolean`**| **`n/a`**                  |
+|**`AtomicInteger`**| **`AtomicIntegerArray`**   |
+|**`AtomicLong`**| **`AtomicLongArray`**      |
+|**`AtomicReference`**| **`AtomicReferenceArray`** |

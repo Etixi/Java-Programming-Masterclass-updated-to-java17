@@ -1,3 +1,12 @@
+
+<h1> Avant toute nouvelle dimension, il faut se confondre à d'autres dimensions. 
+Celles qu'autrefois, nous érigions et qu'on a su surmonter. Mais qu'est-ce donc la 
+dimension ? Pourquoi faut-il se confondre ?</h1><br>
+<h1>Dans chaque dimension réside un univers qu'il faut appréhender, résider et dépasser. 
+Mais avant tout, il faut épurer les chemins qui mènent vers son fronton.</h1>
+
+<br/>
+
 ## **PROGRAMMES**
 <hr>
 
