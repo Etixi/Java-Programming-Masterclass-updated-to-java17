@@ -1,4 +1,6 @@
-package com.timbuchalka;
+package com.etienne;
+
+import com.etienne.inter.ISaveable;
 
 import java.util.ArrayList;
 import java.util.List;

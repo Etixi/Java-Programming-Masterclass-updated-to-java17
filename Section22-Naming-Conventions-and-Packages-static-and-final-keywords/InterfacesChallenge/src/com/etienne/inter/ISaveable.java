@@ -1,4 +1,4 @@
-package com.timbuchalka;
+package com.etienne.inter;
 
 import java.util.List;
 

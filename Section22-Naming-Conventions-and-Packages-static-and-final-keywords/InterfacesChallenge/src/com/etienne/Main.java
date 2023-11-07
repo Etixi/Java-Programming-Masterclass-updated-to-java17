@@ -1,4 +1,6 @@
-package com.timbuchalka;
+package com.etienne;
+
+import com.etienne.inter.ISaveable;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,19 +27,19 @@ public class Main {
         // simulate getting values from a file – this allows you to type as many values as your class
         // requires, and returns an ArrayList.
 
-        Player tim = new Player("Tim", 10, 15);
-        System.out.println(tim.toString());
-        saveObject(tim);
+        com.etienne.Player etixi = new com.etienne.Player("Etienne", 10, 15);
+        System.out.println(etixi.toString());
+        saveObject(etixi);
 
-        tim.setHitPoints(8);
-        System.out.println(tim);
-        tim.setWeapon("Stormbringer");
-        saveObject(tim);
-//        loadObject(tim);
-        System.out.println(tim);
+        etixi.setHitPoints(8);
+        System.out.println(etixi);
+        etixi.setWeapon("Stormbringer");
+        saveObject(etixi);
+//        loadObject(etixi);
+        System.out.println(etixi);
 
-        ISaveable werewolf = new Monster("Werewolf", 20, 40);
-        System.out.println("Strength = " + ((Monster) werewolf).getStrength());
+        ISaveable werewolf = new com.etienne.Monster("Werewolf", 20, 40);
+        System.out.println("Strength = " + ((com.etienne.Monster) werewolf).getStrength());
         saveObject(werewolf);
 
     }
