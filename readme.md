@@ -1,13 +1,13 @@
 <h2> Qui Chéri les mots, éteint l'action! 
-  Nous veillons à ce qu'il n'y ait point confusion.</h2><br>
+  Nous veillons à ce qu'il n'y ait point de confusion.</h2><br>
   <h2>Ensembliste, nous l'étions, ensembliste, nous le resterons.</h2>
   <h2>L'architecte des pensées, propulse et l'action convulse.</h2>
   <h2>Trop de mot, éteint les univers en évasion, ce n'est que dans l'action
-  que nous illuminons, de loin ou de près ce qui lui sait contemple en profusion.
-  Un jour, nous cheminerons vers la demeure des mots, sentence vertigineuse, seule dans ses rues dénudées, 
-  alors nous aurons éteint les néons de la raison, sans prétention, ce n'est qu'un exercice, l'exercice humain.</h2>
+  que nous illuminons, de loin ou de près, seule l'éveillé; contemple en profusion.
+  Un jour, nous cheminerons vers la demeure des mots, alors nous aurons éteint les néons de la raison, sans prétention, 
+   ce n'est qu'un exercice, l'exercice humain.</h2>
 
-<h2>Si peu de chose dans tant de chose, la géométrie des pensées, illumine les choses insensées.
+<h2>Si peu de chose dans tant de chose, la géométrie de la pensée, illumine les choses insensées.
   Les hommes de la pensée, font mirage à l'absolu pensé, les dimensions doivent être conjuguées et encensées.
   La posologie des idées, de la pratique, de la pensée et de la conduite freine la pensée, car toujours, elle demeure éveillé.
   Nul, ne doit l'ignorer, Madame la Nuit, reconnait ses fils éveillés, tant de fois se sont endettés, pour contempler les paysages échappés.
