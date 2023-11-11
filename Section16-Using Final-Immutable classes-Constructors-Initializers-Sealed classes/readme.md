@@ -51,3 +51,56 @@
 + Utiliser final avec des méthodes n'a dev sens que si vous souhaitez restreindre ce que votre sous-classe peut remplacer ou masquer.
 + Utiliser final sur une méthode `instance` signifie que la sous-classe ne peut pas la `remplacer`.
 + Utiliser final sur une méthode `class(static)` signifie que les sous-classes ne peuvent pas la `masquer`.
+
+### **Formatting Date Time**
+
++ There are many ways to format date and time.
++ A couple of standardized ones are shown here.
++ These apply to the formatted method on String, as well as the printf method.
+
+||                                                                                                                        |
+|-----|------------------------------------------------------------------------------------------------------------------------|
+|`'R'`| Time formatted for the 24-hour clock as `"%tH:%tM"`                                                                    |
+|`'T'`| Time formatted for the 24-hour clock as `"%tH:%tM:%tS"`                                                                |
+|`'r'`| Time formatted for the 24-hour clock as `"%tI:%tM:%tS:%Tp"`. The location of the morning or afternoon marker `('%Tp')` |
+|`'D'`| Date formatted as `"%tm/%td/%ty"`                                                                                      |
+|`'F'`| ISO 8601 complete date formatted as `"%tY-%tm-%td"`                                                                    |
+|`'c'`| Date and time formatted as `"%ta %tb %td %tT %tZ %tY"`, e.g. "Sun Jul 20 16:17:00 EDT 1969".                           |
+
++ This information was retrieved from the link I show here.
++ https://docs.orcale.com/en/java/javase/17/docs/api/java.base/util/Formatter.html#dt
+
+### **Collections non modifiables et vues de collection non modifiables**
++ Les trois principales `interfaces de collection, List, Set ou Map` ont des méthodes pour obtenir une copie non modifiable sur l'interface spécifique, liée au type de collection, comme indiqué, en plus la classe `java.util.Collections` propose des méthodes, pour obtenez des vues non modifiables comme indiqué.
++ Ces méthodes permettent de se rapprocher de l'idéal d'immuabilité, si besoin est.
+
+| -        | Copie non modifiable des collections                                          | Vue non modifiable de la collection                                                                                          |
+|----------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| **List** | `List.copyOf` <br/> `List.of`                                                 | **Collections.unmodifiableList**                                                                                             |
+| **Set**  | `Set.copyOf` <br/> `Set.of`                                                   | **Collections.unmodifiableSet** <br/> **Collections.unmodifiableNavigableSet** <br/> **Collections.unmodifiableSortedSet**   |
+| **Map**  | `Map.copyOf` <br/> `Map.entry(K k, V v)` <br/> `Map.of` <br/> `Map.ofEntries` | **Collections.unmodifiableMap** <br/> **Collections.unmodifiableNavigableMap** <br/> **Collections.unmodifiableSortableMap** |
+
+### **Les cours finaux**
+
+| Opérations | classe final | classe abstraite | constructeurs privés uniquement | constructeurs protégés uniquement |
+|---------------------------------------------|--------------|----------------|--------------------------------|-----------------------------------------------------|
+| Instancier une nouvelle instance | Oui          | Non | Non | Oui, mais uniquement les sous-classes et les classes du même package |
+| Une sous-classe peut être déclarée avec succès | Non          | Oui | Non | Oui |
+
++ Les modificateurs `final et abstract` sont incompatibles et ne seraient pas utilisés dans la même déclaration.
++ Vous pouvez voir que si vous ne souhaitez pas que votre classe soit instanciée, vous pouvez soit la rendre abstraite, soit utiliser un modificateur d'accès plus restrictif sur la classe.
+
+
+### **Classes scellées**
++ `JDK17` a introduit un nouveau modificateur, `sealed`, pour nos classes et interfaces.
++ Ce modificateur peut être utilisé à la fois pour les types externes et les types imbriqués.
++ Lorsqu'elle est utilisée, une clause « permits » est également requise dans la plupart des cas, qui répertorie les sous-classes autorisées.
++ Les sous-classes peuvent être des classes imbriquées, des classes déclarées dans le même fichier, des classes dans le même package ou, si vous utilisez des modules Java, dans le même module.
++ Ce que cela signifie cependant, pour cette conversation spécifique, c'est que tout notre code jusqu'à présent, depuis `JDK9`, fait partie de ce qu'on appelle le module par défaut sans nom.
++ Pour cette raison, je ne peux pas utiliser de sous-classes dans la clause permits qui se trouvent dans d'autres packages.
++ Une classe `sealed` et ses sous-classes directes créent une référence circulaire.
++ L'utilisation du mot-clé seal nécessite que la classe parent « déclare ses sous-classes », en utilisant une clause permits.
++ Cela signifie que la classe parent doit connaître chaque sous-classe directe, et celles-ci doivent exister, dans le même package dans ce cas.
++ De plus, le mot-clé scellé impose une exigence à toutes les sous-classes déclarées dans la clause permits.
++ Cela nécessite que chaque sous-classe déclare l'un des trois modificateurs valides pour une classe étendant une classe scellée.
++ Ceux-ci sont `final, sealed, et non-sealed`.

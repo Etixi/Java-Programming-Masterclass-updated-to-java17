@@ -1,14 +1,24 @@
+<h2> Qui Chéri les mots, éteint l'action! 
+  Nous veillons à ce qu'il n'y ait point confusion.
+  Ensembliste, nous l'étions, ensembliste, nous le resterons.
+  L'architecte des pensées, propulse et l'action convulse. 
+  Trop de mot, éteint les univers en évasion, ce n'est que dans l'action
+  que nous illuminons, de loin ou de près ce qui lui sait contemple en profusion.
+  Un jour, nous cheminerons vers la demeure des mots, sentence vertigineuse, seule dans ses rues dénudées, 
+  alors nous aurons éteint les néons de la raison, sans prétention, ce n'est qu'un exercice, l'exercice humain.
 
-<h1> Avant toute nouvelle dimension, il faut se confondre à d'autres dimensions. 
-Celles qu'autrefois, nous érigions et qu'on a su surmonter. Mais qu'est-ce donc la 
-dimension ? Pourquoi faut-il se confondre ?</h1><br>
-<h1>Dans chaque dimension réside un univers qu'il faut appréhender, résider et dépasser. 
-Mais avant tout, il faut épurer les chemins qui mènent vers son fronton.</h1>
+  Si peu de chose dans tant de chose, la géométrie des pensées, illumine les choses insensées.
+  Les hommes de la pensée, font mirage à l'absolu pensé, les dimensions doivent être conjuguées et encensées.
+  La posologie des idées, de la pratique, de la pensée et de la conduite freine la pensée, car toujours, elle demeure éveillé.
+  Nul, ne doit l'ignorer, Madame la Nuit, reconnait ses fils éveillés, tant de fois se sont endettés, pour contempler les paysages échappés.
+</h2><br>
 
-<br/>
+
+<hr>
 
 ## **PROGRAMMES**
-<hr>
+
+</hr>
 
 ### **SECTION 1 : Getting Started**
 ### **SECTION 2 : Programming Tools Setup**
