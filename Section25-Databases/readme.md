@@ -25,3 +25,6 @@
 
 ### **Telechargement SQLite**
 + [SQLite](www.sqlite.org/download.html)
+            
+                OU
+            choco install sqlite
